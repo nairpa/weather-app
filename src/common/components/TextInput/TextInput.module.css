@@ -1,0 +1,26 @@
+.input {
+    border: 1px solid var(--text-inactive);
+    color: var(--text-inactive);
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    height: 48px;
+    padding: 0 1em;
+    transition: all 0.2s ease-in-out;
+}
+
+.input input {
+    border: none;
+    background-color: transparent;
+    caret-color: var(--text-color);
+    color: var(--text-color);
+}
+
+.input input:focus {
+    outline: none;
+}
+
+.icon {
+    font-family: 'Material Symbols Outlined';
+    color: var(--text-inactive);
+}

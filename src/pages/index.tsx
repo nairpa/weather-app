@@ -6,6 +6,7 @@ import { Heading } from '@/common/components/Heading/Heading'
 import { HightlightsCard } from '@/common/templates/HighlightsCard/HightlightsCard'
 import { IconButton } from '@/common/components/IconButton/IconButton'
 import { ButtonComponent } from '@/common/components/Button/Button'
+import { TextInput } from '@/common/components/TextInput/TextInput'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,8 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <IconButton icon={'my_location'}/>
-        <ButtonComponent label={"search for places"}/>
+     
       </main>
     </>
   )
