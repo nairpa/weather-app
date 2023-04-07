@@ -1,13 +1,5 @@
+import { WeatherForecast } from '@/common/templates/WeatherForecast/WeatherForecast'
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import { Card, CardFooter, CardImage, CardTitle } from '@/common/components/Card/Card'
-import { Text } from '@/common/components/Text/Text'
-import { Heading } from '@/common/components/Heading/Heading'
-import { HightlightsCard } from '@/common/templates/HighlightsCard/HightlightsCard'
-import { IconButton } from '@/common/components/IconButton/IconButton'
-import { ButtonComponent } from '@/common/components/Button/Button'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -19,8 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <IconButton icon={'my_location'}/>
-        <ButtonComponent label={"search for places"}/>
+        <WeatherForecast />
       </main>
     </>
   )

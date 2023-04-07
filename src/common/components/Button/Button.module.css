@@ -1,14 +1,29 @@
 .button {
-    background-color: var(--text-inactive);
-    color: var(--text-color);
-    padding: 0.5em 1em;
+    padding: 0 1em;
     border: none;
     box-shadow: var(--box-shadow);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    color: var(--text-color);
 }
 
 .button:hover {
     background-color: var(--text-color);
     color: var(--text-dark);
+}
+
+.primary {
+    background-color: var(--text-inactive);
+}
+
+.accent {
+    background-color: var(--color-accent);
+}
+
+.md {
+    height: 40px;
+}
+
+.lg {
+    height: 48px;
 }
