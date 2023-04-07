@@ -1,0 +1,14 @@
+.font {
+    font-family: 'Material Symbols Outlined';
+    font-size: 18px;
+}
+
+.iconContainer {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--text-inactive);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

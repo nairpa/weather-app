@@ -1,0 +1,21 @@
+.font {
+    font-size: 36px;
+}
+
+.fontLarge {
+    font-size: 64px;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.cardContent {
+    width: calc(328px - 2em);
+    height: calc(204px - 2em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+}
