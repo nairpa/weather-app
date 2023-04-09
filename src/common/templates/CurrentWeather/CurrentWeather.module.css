@@ -1,0 +1,59 @@
+.aside {
+    background-color: var(--component-bg);
+    height: 100%;
+    position: relative;
+    width: 350px;
+}
+
+.head {
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.imgContainer {
+    width: 130px;
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.bgImg {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/Cloud-background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+}
+
+.temperatureContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 3em;
+}
+
+.temperature {
+    font-size: 104px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.unit {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--text-inactive)
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    color: var(--text-inactive);
+    font-size: 18px;
+}

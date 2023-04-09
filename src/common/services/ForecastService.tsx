@@ -23,6 +23,14 @@ export interface Forecast {
     daily_units: any,
 }
 
+export interface CurrentWeather {
+    time: string,
+    temperature: number,
+    weathercode: number,
+    windspeed: number,
+    winddirection: number
+}
+
 export const ForecastService = {
     getForecast: async (queryParams: ForecastParams)  => {
         const params = new URLSearchParams(queryParams).toString();

@@ -11,6 +11,25 @@
 * {
   font-family: "Raleway";
   font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height:100vh;
+  padding: 0;
+  margin: 0;
+}
+
+#__next {
+  height: 100%;
+}
+
+body, main {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -21,6 +40,11 @@ body {
   display: flex;
   gap: 0.5em;
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+  width: 100%;
 }
 
 .col {
