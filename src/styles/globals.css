@@ -25,11 +25,17 @@ html {
   height: 100%;
 }
 
-body, main {
+body {
   height: 100%;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.main {
+  position: relative;
+  width: calc(100% - 500px);
+  left: 500px;
 }
 
 body {
@@ -50,6 +56,14 @@ body {
 .col {
   flex-direction: column;
   gap: 0.5em;
+}
+
+.section-a {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 80%;
+  width: 80%;
 }
 
 .text-light {

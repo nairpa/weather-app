@@ -1,7 +1,7 @@
 .aside {
     background-color: var(--component-bg);
     height: 100%;
-    position: relative;
+    position: fixed;
     width: 350px;
 }
 

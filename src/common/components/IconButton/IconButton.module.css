@@ -3,6 +3,10 @@
     font-size: 18px;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 .iconContainer {
     border-style: none;
     color: var(--text-color);

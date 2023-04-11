@@ -2,6 +2,7 @@ import { useGeolocation } from "@/common/hooks/useGeolocation";
 import { Forecast, ForecastService } from "@/common/services/ForecastService";
 import { useEffect, useState } from "react";
 import { WeatherDayCard } from "../WeatherDayCard/WeatherDayCard";
+import styles from "./WeatherForecast.module.css";
 
 export interface WeatherForecastProps {
     forecast: Forecast | null
@@ -9,7 +10,7 @@ export interface WeatherForecastProps {
 
 export const WeatherForecast = ({forecast}: WeatherForecastProps) => {
     return (
-        <div className="flex justify-center">
+        <div className={`${styles.container} flex justify-center`}>
             { forecast?.daily.temperature_2m_max.map((max: any, i: number) => {
                 if(i) {
                     return(

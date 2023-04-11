@@ -1,6 +1,8 @@
+import { IconButton } from '@/common/components/IconButton/IconButton'
 import { useGeolocation } from '@/common/hooks/useGeolocation'
 import { Forecast, ForecastService } from '@/common/services/ForecastService'
 import { CurrentWeatherComponent } from '@/common/templates/CurrentWeather/CurrentWeather'
+import { Header } from '@/common/templates/Header/Header'
 import { WeatherForecast } from '@/common/templates/WeatherForecast/WeatherForecast'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
@@ -40,9 +42,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='flex'>
-        <CurrentWeatherComponent forecast={forecast?.current_weather} unit={unit}/>
-        <WeatherForecast forecast={forecast}/>
+      <CurrentWeatherComponent forecast={forecast?.current_weather} unit={unit}/>
+      <Header />
+      <main className='main'>
+        <section className="section-a">
+          <WeatherForecast forecast={forecast}/>
+        </section>
       </main>
     </>
   )
