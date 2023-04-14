@@ -44,6 +44,10 @@ export const CurrentWeatherComponent = ({forecast, unit}: CurrentWeatherProps) =
 
             <div className={styles.footer}>
                 <span className="font">Today · { getDate() }</span>
+                <div className={styles.location}>
+                    <span className={styles.fontIcon}>location_on</span>
+                    <span> Current </span>
+                </div>
             </div>
         </aside>
     )

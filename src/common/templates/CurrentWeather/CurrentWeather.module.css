@@ -2,7 +2,7 @@
     background-color: var(--component-bg);
     height: 100%;
     position: fixed;
-    width: 350px;
+    width: 300px;
 }
 
 .head {
@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
+    height: 25%;
 }
 
 .imgContainer {
@@ -28,14 +29,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 250px;
+    height: 25%;
 }
 
 .temperatureContainer {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 3em;
+    height: 25%;
 }
 
 .temperature {
@@ -53,7 +54,14 @@
 .footer {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: center;    
+    gap: 0.5em;
     color: var(--text-inactive);
     font-size: 18px;
+    height: 25%;
+}
+
+.fontIcon {
+    font-family: 'Material Symbols Outlined';
 }

@@ -16,7 +16,7 @@ export const CardTitle = ({ title="Card title", ...props}: CardProps) => {
 export const CardImage = ({ image='', ...props}: CardProps) => {
     return (
         <div className={styles.centerImg}>
-            <img src={image} height={100}/>
+            <img src={image} width={100} />
         </div>
     )
 }

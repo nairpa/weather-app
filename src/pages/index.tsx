@@ -42,13 +42,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CurrentWeatherComponent forecast={forecast?.current_weather} unit={unit}/>
-      <Header />
-      <main className='main'>
-        <section className="section-a">
-          <WeatherForecast forecast={forecast}/>
-        </section>
-      </main>
+        <CurrentWeatherComponent forecast={forecast?.current_weather} unit={unit}/>
+        <div className='content'>
+        <Header />
+        <main className='main'>
+          <section className="section-a">
+            <WeatherForecast forecast={forecast}/>
+          </section>
+        </main>
+        </div>
     </>
   )
 }
