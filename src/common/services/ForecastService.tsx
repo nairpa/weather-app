@@ -21,6 +21,7 @@ export interface Forecast {
     daily: any,
     current_weather: any,
     daily_units: any,
+    hourly_units: any,
 }
 
 export interface CurrentWeather {
@@ -32,7 +33,7 @@ export interface CurrentWeather {
 }
 
 export const ForecastService = {
-    getForecast: async (queryParams: ForecastParams)  => {
+    getForecast: async (queryParams: any)  => {
         const params = new URLSearchParams(queryParams).toString();
         let url = 'forecast';
 

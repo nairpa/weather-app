@@ -3,14 +3,20 @@ import styles from "./HightlightsCard.module.css";
 import { FabIcon } from "@/common/components/FabIcon/FabIcon";
 import { Text } from "@/common/components/Text/Text";
 
-export const HightlightsCard = () => {
+interface HighlightsCardProps {
+    title: string,
+    value: any,
+    unit: any,
+}
+
+export const HightlightsCard = ({ title, value, unit }:HighlightsCardProps) => {
     return (
         <Card>
             <div className={styles.cardContent}>
-                <CardTitle title="Wind status" />
+                <CardTitle title={title} />
                 <div>
-                    <span className={`${styles.bold} ${styles.fontLarge}`}>7</span>
-                    <span className={styles.font}>mph</span>
+                    <span className={`${styles.bold} ${styles.fontLarge}`}>{value}</span>
+                    <span className={styles.font}>{unit}</span>
                 </div>
                 <CardFooter>
                     <div className="flex">
