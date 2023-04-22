@@ -1,15 +1,15 @@
 import { Card, CardFooter, CardTitle } from "@/common/components/Card/Card"
 import styles from "./HightlightsCard.module.css";
-import { FabIcon } from "@/common/components/FabIcon/FabIcon";
-import { Text } from "@/common/components/Text/Text";
+import { FabIcon, FabIconProps } from "@/common/components/FabIcon/FabIcon";
 
 interface HighlightsCardProps {
     title: string,
     value: any,
     unit: any,
+    icon: 'air' | 'cloudy' | 'visibility' | 'water_drop'
 }
 
-export const HightlightsCard = ({ title, value, unit }:HighlightsCardProps) => {
+export const HightlightsCard = ({ title, value, unit, icon }:HighlightsCardProps) => {
     return (
         <Card>
             <div className={styles.cardContent}>
@@ -20,8 +20,7 @@ export const HightlightsCard = ({ title, value, unit }:HighlightsCardProps) => {
                 </div>
                 <CardFooter>
                     <div className="flex">
-                        <FabIcon icon={'air'}/>
-                        <Text text={"wsw"} />
+                        <FabIcon icon={icon}/>
                     </div>
                 </CardFooter>
             </div>

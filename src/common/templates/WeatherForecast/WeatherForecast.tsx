@@ -1,6 +1,4 @@
-import { useGeolocation } from "@/common/hooks/useGeolocation";
-import { Forecast, ForecastService } from "@/common/services/ForecastService";
-import { useEffect, useState } from "react";
+import { Forecast } from "@/common/services/ForecastService";
 import { WeatherDayCard } from "../WeatherDayCard/WeatherDayCard";
 import styles from "./WeatherForecast.module.css";
 
@@ -15,6 +13,7 @@ export const WeatherForecast = ({forecast}: WeatherForecastProps) => {
                 if(i) {
                     return(
                         <WeatherDayCard 
+                            key={i}
                             max={max} 
                             min={forecast.daily.temperature_2m_min[i]} 
                             weekday={forecast.daily.time[i]} 
@@ -23,7 +22,7 @@ export const WeatherForecast = ({forecast}: WeatherForecastProps) => {
                         />
                     )
                 } else {
-                    return <></>
+                    return;
                 }
             })}
         </div>

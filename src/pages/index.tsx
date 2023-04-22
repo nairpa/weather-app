@@ -14,7 +14,9 @@ export default function Home() {
   const [ forecast, setForecast ] = useState<Forecast | null>(null);
 
   useEffect(() => {
+    if(latitude && longitude) {
       getForecast()
+    }
   }, [latitude, longitude])
 
   const getForecast = async() => {
@@ -45,12 +47,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <CurrentWeatherComponent forecast={forecast?.current_weather} unit={unit}/>
-      <Header />
-      <main className='main'>
-        <section className="section-a">
-          <WeatherForecast forecast={forecast} />
-        </section>
-      </main>
+      <div className="w-full">
+        <Header />
+        <main className='main'>
+          <section className="section-a">
+            <WeatherForecast forecast={forecast} />
+            <TodaysHightlights hightlights={forecast}/>
+          </section>
+        </main>
+      </div>
     </>
   )
 }

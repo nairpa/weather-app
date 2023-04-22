@@ -1,8 +1,8 @@
 .aside {
     background-color: var(--component-bg);
     height: 100%;
-    position: fixed;
-    width: 300px;
+    position: sticky;
+    width: 450px;
 }
 
 .head {

@@ -13,11 +13,7 @@ export interface CurrentWeatherProps {
 export const CurrentWeatherComponent = ({forecast, unit}: CurrentWeatherProps) => {
     const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec' ];
-
-    useEffect(() => {
-        console.log(forecast)
-    }, [])
-
+    
     const getDate = () => {
         const today = new Date(Date.now());
         const { day, month, date } = { day: today.getDay(), month: today.getMonth(), date: today.getDate() };

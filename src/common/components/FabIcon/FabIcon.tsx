@@ -1,7 +1,7 @@
 import styles from "./FabIcon.module.css";
 
 export interface FabIconProps {
-    icon: string;
+    icon: 'air' | 'cloudy' | 'visibility' | 'water_drop';
 }
 
 export const FabIcon = ({icon}: FabIconProps) => {
@@ -11,6 +11,5 @@ export const FabIcon = ({icon}: FabIconProps) => {
                 {icon}
             </span>
         </div>
-        
     )
 }

@@ -23,6 +23,8 @@ html {
 
 #__next {
   height: 100%;
+  width: 100%;
+  display: flex;
 }
 
 body {
@@ -36,6 +38,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.w-full {
+  display: flex;
+  width: calc(100% - 450px);
+  flex-direction: column;
+  height: 100%;
+  position: relative;
 }
 
 body {
@@ -72,6 +82,7 @@ body {
   flex-direction: column;
   height: 80%;
   width: 80%;
+  gap: 2em;
 }
 
 .text-light {
