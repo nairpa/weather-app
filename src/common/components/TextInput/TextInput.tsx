@@ -3,7 +3,8 @@ import styles from "./TextInput.module.css";
 
 export interface TextInputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     label: string,
-    icon?: string
+    icon?: string,
+    value: string,
 }
 
 export const TextInput = ({ label, icon, ...props }: TextInputProps) => {

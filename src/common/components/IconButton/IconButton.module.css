@@ -13,7 +13,6 @@
     border-radius: 50%;
     width: 30px;
     height: 30px;
-    background-color: var(--text-inactive);
     align-items: center;
     justify-content: center;
     display: flex;
@@ -21,7 +20,20 @@
     cursor: pointer;
 }
 
-.iconContainer:hover {
+.primary {
+    background-color: var(--text-inactive);
+}
+
+.secondary {
+    background-color: inherit;
+    font-weight: bold;
+}
+
+.secondary:hover {
+    color: var(--text-inactive)
+}
+
+.iconContainer.primary:hover {
     background-color: var(--text-color);
     color: var(--text-dark);
 }

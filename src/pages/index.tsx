@@ -12,18 +12,23 @@ export default function Home() {
   const { latitude, longitude } = useGeolocation();
   const [ unit, setUnit] = useState<'celsius' | 'fahrenheit'>('celsius');
   const [ forecast, setForecast ] = useState<Forecast | null>(null);
+  const [ location, setLocation] = useState<any>();
 
   useEffect(() => {
     if(latitude && longitude) {
+      setLocation({
+        latitude: latitude,
+        longitude: longitude,
+      })
+
       getForecast()
     }
-  }, [latitude, longitude])
+  }, [location])
 
   const getForecast = async() => {
       try {
           const res = await ForecastService.getForecast({
-              latitude,
-              longitude,
+              ...location,
               current_weather: true,
               forecast_days: '6',
               timezone: 'GMT',
@@ -46,7 +51,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CurrentWeatherComponent forecast={forecast?.current_weather} unit={unit}/>
+      <CurrentWeatherComponent forecast={forecast?.current_weather} setLocation={setLocation} unit={unit}/>
       <div className="w-full">
         <Header />
         <main className='main'>

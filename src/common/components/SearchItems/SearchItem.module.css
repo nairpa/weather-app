@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;   
+    color: var(--text-inactive);
+}
+
+.icon {
+    font-family: 'Material Symbols Outlined';
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.listItem {
+    padding: 1em;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+
+.listItem .icon {
+    display: none;
+}
+
+.listItem:hover .icon {
+    display: block;
+}
+
+.listItem:hover {
+    border: 1px solid var(--text-inactive);
+}
