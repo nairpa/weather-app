@@ -9,6 +9,6 @@ export interface ButtonProps extends DetailedHTMLProps<HtmlHTMLAttributes<HTMLBu
 
 export const ButtonComponent = ({label, size='md', color='primary', ...props}: ButtonProps) => {
     return (
-        <button className={`${styles.button} ${styles[size]} ${styles[color]}`}>{label}</button>
+        <button className={`${styles.button} ${styles[size]} ${styles[color]}`} {...props}>{label}</button>
     )
 }

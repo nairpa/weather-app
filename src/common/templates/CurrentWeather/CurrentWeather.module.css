@@ -5,6 +5,23 @@
     width: 450px;
 }
 
+.hidden {
+    display: none;
+}
+
+.show {
+    z-index: 1;
+    position: absolute;
+}
+
+.searchInput {
+    padding: 1em;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+}
+
 .head {
     padding: 2em;
     display: flex;
