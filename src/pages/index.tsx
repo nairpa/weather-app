@@ -23,12 +23,13 @@ export default function Home() {
 
       getForecast()
     }
-  }, [location])
+  }, [latitude, longitude])
 
   const getForecast = async() => {
       try {
           const res = await ForecastService.getForecast({
-              ...location,
+              latitude: latitude,
+              longitude: longitude,
               current_weather: true,
               forecast_days: '6',
               timezone: 'GMT',

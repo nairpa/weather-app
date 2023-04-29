@@ -2,7 +2,7 @@
     background-color: var(--component-bg);
     height: 100%;
     position: fixed;
-    width: 450px;
+    width: 350px;
 }
 
 .hidden {

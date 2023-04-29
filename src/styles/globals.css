@@ -43,11 +43,11 @@ body {
 
 .w-full {
   display: flex;
-  width: calc(100% - 450px);
+  width: calc(100% - 350px);
   flex-direction: column;
   height: 100%;
   position: relative;
-  left: 450px;
+  left: 350px;
 }
 
 body {
