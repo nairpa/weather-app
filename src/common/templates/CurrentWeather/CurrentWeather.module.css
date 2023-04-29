@@ -3,6 +3,7 @@
     height: 100%;
     position: fixed;
     width: 350px;
+    z-index: 3;
 }
 
 .hidden {
