@@ -1,4 +1,5 @@
 .container {
     gap: 2em;
     flex-wrap: wrap;
+    width: fit-content;
 }

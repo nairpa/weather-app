@@ -82,7 +82,7 @@ body {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  width: 80%;
+  max-width: 1124px;
   gap: 2em;
   margin-bottom: 2em;
 }

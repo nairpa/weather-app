@@ -9,12 +9,14 @@ import { GeocodingService, Countries } from "@/common/services/GeocodingService"
 import { SearchItem } from "@/common/components/SearchItems/SearchItem";
 import { ForecastContext, ForecastContextType } from "@/common/context/ForecastContext";
 import { DAYS, MONTHS } from "@/common/constants/date.contants";
+import { useGeolocation } from "@/common/hooks/useGeolocation";
 
 export const CurrentWeatherComponent = () => {
     const { forecast, setForecast, unit, location, setLocation } = useContext(ForecastContext) as ForecastContextType;
     const [ open, setOpen ] = useState(false);
     const [ countries, setCountries ] = useState<Countries[]>([]);
     const [ search, setSearch ] = useState<string>('');
+    const { latitude, longitude} = useGeolocation();
 
     useEffect(() => {
 
@@ -36,6 +38,16 @@ export const CurrentWeatherComponent = () => {
     
     const handleSearch = () => {
         getGeocoding()
+    }
+
+    const handleCurrentLocation = () => {
+        setLocation({
+            latitude,
+            longitude,
+            city: 'Current'
+        })
+
+        getForecast(latitude, longitude)
     }
 
     const handleSearchForecast = (event: any, country: Countries) => {
@@ -93,7 +105,7 @@ export const CurrentWeatherComponent = () => {
                 </div>
                 <div className={styles.searchList}>
                     <ul className={styles.list}>
-                        { countries.map(country => {
+                        { countries?.map(country => {
                             return (
                                 <SearchItem country={country} key={country.id} handleClick={handleSearchForecast} />
                             )
@@ -105,7 +117,7 @@ export const CurrentWeatherComponent = () => {
             <aside className={styles.aside}>
                 <div className={styles.head}>
                     <ButtonComponent label="Search for places" onClick={() => handleClick()}/>
-                    <IconButton icon="my_location" />
+                    <IconButton icon="my_location" onClick={() => handleCurrentLocation()} />
                 </div>
 
                 <div className={styles.bgImg}>

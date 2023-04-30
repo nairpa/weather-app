@@ -13,19 +13,17 @@ export default function Home() {
   const { latitude, longitude } = useGeolocation();
   const [ forecast, setForecast ] = useState<Forecast>({} as Forecast);
   const [ unit, setUnit ] = useState<'celsius' | 'fahrenheit'>('celsius');
-  const [ location, setLocation] = useState<Location | null>(null);
+  const [ location, setLocation] = useState<Location | null>({
+    latitude,
+    longitude,
+    city: 'Current'
+  });
 
   useEffect(() => {
     if(latitude && longitude) {
-      setLocation({
-        latitude: latitude,
-        longitude: longitude,
-        city: 'Current'
-      })
-
       getForecast()
     }
-  }, [])
+  }, [latitude, longitude])
 
   const getForecast = async() => {
       try {
