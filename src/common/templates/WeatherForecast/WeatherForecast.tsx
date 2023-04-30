@@ -1,4 +1,3 @@
-import { Forecast } from "@/common/services/ForecastService";
 import { WeatherDayCard } from "../WeatherDayCard/WeatherDayCard";
 import styles from "./WeatherForecast.module.css";
 import { useContext } from "react";

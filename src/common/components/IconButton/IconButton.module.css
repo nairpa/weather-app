@@ -37,3 +37,8 @@
     background-color: var(--text-color);
     color: var(--text-dark);
 }
+
+.iconContainer.primary.selected {
+    background-color: var(--text-color);
+    color: var(--text-dark);
+}
