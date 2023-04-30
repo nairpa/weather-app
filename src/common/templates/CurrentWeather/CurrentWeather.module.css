@@ -12,7 +12,7 @@
 
 .show {
     z-index: 4;
-    position: absolute;
+    position: fixed;
 }
 
 .searchInput {
@@ -31,6 +31,25 @@
     gap: 0.5em;
     list-style: none;
     padding: 2em;
+}
+
+.searchList {
+    height: calc(100% - 11em);
+    overflow: auto;
+}
+
+.searchList::-webkit-scrollbar {
+    width: 10px;
+}
+
+.searchList::-webkit-scrollbar-track {
+    background-color: var(--component-bg);
+    border-radius: 4px;
+}
+
+.searchList::-webkit-scrollbar-thumb {
+    background: rgb(16, 14, 29, 0.5);
+    border-radius: 4px;
 }
 
 .closeBtn {

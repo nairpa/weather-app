@@ -90,7 +90,7 @@ export const CurrentWeatherComponent = ({ setLocation }: CurrentWeatherProps) =>
                     <TextInput icon={"search"} label={"search location"} onChange={(e) => handleChange(e)} value={search} />
                     <ButtonComponent size="lg" label={"search"} color="accent" onClick={() => handleSearch()}/>
                 </div>
-                <div>
+                <div className={styles.searchList}>
                     <ul className={styles.list}>
                         { countries.map(country => {
                             return (
