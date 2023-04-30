@@ -1,6 +1,13 @@
 import { axiosInstanceGeocoding } from "../utils/AxiosInstance";
 
-export interface ICountries {
+export interface Location {
+    latitude: number,
+    longitude: number,
+    country?: string,
+    city: string,
+}
+
+export interface Countries {
     id: number,
     name: string,
     latitude: number,

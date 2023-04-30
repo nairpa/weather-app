@@ -1,27 +1,21 @@
 import { ButtonComponent } from "@/common/components/Button/Button"
 import { IconButton } from "@/common/components/IconButton/IconButton"
 import styles from "./CurrentWeather.module.css";
-import { CurrentWeather, ForecastService } from "@/common/services/ForecastService";
+import { ForecastService } from "@/common/services/ForecastService";
 import { useContext, useEffect, useState } from "react";
 import { WeatherImage } from "@/common/components/WeatherImage/WeatherImage";
 import { TextInput } from "@/common/components/TextInput/TextInput";
-import { GeocodingService, ICountries } from "@/common/services/GeocodingService";
+import { GeocodingService, Countries } from "@/common/services/GeocodingService";
 import { SearchItem } from "@/common/components/SearchItems/SearchItem";
 import { ForecastContext, ForecastContextType } from "@/common/context/ForecastContext";
+import { DAYS, MONTHS } from "@/common/constants/date.contants";
 
-export interface CurrentWeatherProps {
-    setLocation: any,
-}
-
-export const CurrentWeatherComponent = ({ setLocation }: CurrentWeatherProps) => {
-    const { forecast, setForecast, unit } = useContext(ForecastContext) as ForecastContextType;
+export const CurrentWeatherComponent = () => {
+    const { forecast, setForecast, unit, location, setLocation } = useContext(ForecastContext) as ForecastContextType;
     const [ open, setOpen ] = useState(false);
-    const [ countries, setCountries ] = useState<ICountries[]>([]);
+    const [ countries, setCountries ] = useState<Countries[]>([]);
     const [ search, setSearch ] = useState<string>('');
 
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const months = [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec' ];
-    
     useEffect(() => {
 
     }, [countries])
@@ -29,7 +23,7 @@ export const CurrentWeatherComponent = ({ setLocation }: CurrentWeatherProps) =>
     const getDate = () => {
         const today = new Date(Date.now());
         const { day, month, date } = { day: today.getDay(), month: today.getMonth(), date: today.getDate() };
-        return `${days[day]}. ${date} ${months[month]}`
+        return `${DAYS[day]}. ${date} ${MONTHS[month]}`
     }
 
     const handleClick = () => {
@@ -44,8 +38,15 @@ export const CurrentWeatherComponent = ({ setLocation }: CurrentWeatherProps) =>
         getGeocoding()
     }
 
-    const handleSearchForecast = (event: any, country: ICountries) => {
-        const { latitude, longitude } = country;
+    const handleSearchForecast = (event: any, country: Countries) => {
+        const { latitude, longitude, name } = country;
+        setLocation({
+            ...location,
+            latitude,
+            longitude,
+            city: name,
+            country: country.country
+        })
         getForecast(latitude, longitude);
     }
 
@@ -122,7 +123,7 @@ export const CurrentWeatherComponent = ({ setLocation }: CurrentWeatherProps) =>
                     <span className="font">Today · { getDate() }</span>
                     <div className={styles.location}>
                         <span className={styles.fontIcon}>location_on</span>
-                        <span> Current </span>
+                        <span> { `${location?.city} ${location?.country ?? ''}` } </span>
                     </div>
                 </div>
             </aside>

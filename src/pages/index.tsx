@@ -1,31 +1,31 @@
-import { IconButton } from '@/common/components/IconButton/IconButton'
-import ForecastProvider, { ForecastContext, ForecastContextType } from '@/common/context/ForecastContext'
+import { ForecastContext } from '@/common/context/ForecastContext'
 import { useGeolocation } from '@/common/hooks/useGeolocation'
 import { Forecast, ForecastService } from '@/common/services/ForecastService'
+import { Location } from '@/common/services/GeocodingService'
 import { CurrentWeatherComponent } from '@/common/templates/CurrentWeather/CurrentWeather'
 import { Header } from '@/common/templates/Header/Header'
 import { TodaysHightlights } from '@/common/templates/TodaysHighlights/TodaysHightlights'
 import { WeatherForecast } from '@/common/templates/WeatherForecast/WeatherForecast'
 import Head from 'next/head'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
   const { latitude, longitude } = useGeolocation();
   const [ forecast, setForecast ] = useState<Forecast>({} as Forecast);
   const [ unit, setUnit ] = useState<'celsius' | 'fahrenheit'>('celsius');
-  // const { forecast, setForecast, unit, setUnit } = useContext(ForecastContext) as ForecastContextType;
-  const [ location, setLocation] = useState<any>();
+  const [ location, setLocation] = useState<Location | null>(null);
 
   useEffect(() => {
     if(latitude && longitude) {
       setLocation({
         latitude: latitude,
         longitude: longitude,
+        city: 'Current'
       })
 
       getForecast()
     }
-  }, [latitude, longitude])
+  }, [])
 
   const getForecast = async() => {
       try {
@@ -54,8 +54,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ForecastContext.Provider value={{ forecast, setForecast, unit, setUnit}}>
-        <CurrentWeatherComponent setLocation={setLocation} />
+      <ForecastContext.Provider value={{ forecast, setForecast, unit, setUnit, location, setLocation}}>
+        <CurrentWeatherComponent />
         <div className="w-full">
           <Header />
           <main className='main'>
