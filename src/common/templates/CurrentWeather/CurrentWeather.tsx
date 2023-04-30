@@ -1,20 +1,20 @@
 import { ButtonComponent } from "@/common/components/Button/Button"
 import { IconButton } from "@/common/components/IconButton/IconButton"
 import styles from "./CurrentWeather.module.css";
-import { CurrentWeather } from "@/common/services/ForecastService";
-import { useEffect, useState } from "react";
+import { CurrentWeather, ForecastService } from "@/common/services/ForecastService";
+import { useContext, useEffect, useState } from "react";
 import { WeatherImage } from "@/common/components/WeatherImage/WeatherImage";
 import { TextInput } from "@/common/components/TextInput/TextInput";
 import { GeocodingService, ICountries } from "@/common/services/GeocodingService";
 import { SearchItem } from "@/common/components/SearchItems/SearchItem";
+import { ForecastContext, ForecastContextType } from "@/common/context/ForecastContext";
 
 export interface CurrentWeatherProps {
-    forecast: CurrentWeather,
-    unit: string,
     setLocation: any,
 }
 
-export const CurrentWeatherComponent = ({forecast, setLocation, unit}: CurrentWeatherProps) => {
+export const CurrentWeatherComponent = ({ setLocation }: CurrentWeatherProps) => {
+    const { forecast, setForecast, unit } = useContext(ForecastContext) as ForecastContextType;
     const [ open, setOpen ] = useState(false);
     const [ countries, setCountries ] = useState<ICountries[]>([]);
     const [ search, setSearch ] = useState<string>('');
@@ -44,8 +44,28 @@ export const CurrentWeatherComponent = ({forecast, setLocation, unit}: CurrentWe
         getGeocoding()
     }
 
-    const handleSearchForecast = () => {
+    const handleSearchForecast = (event: any, country: ICountries) => {
+        const { latitude, longitude } = country;
+        getForecast(latitude, longitude);
+    }
 
+    const getForecast = async(latitude: number, longitude: number) => {
+        try {
+            const res = await ForecastService.getForecast({
+                latitude: latitude,
+                longitude: longitude,
+                current_weather: true,
+                forecast_days: '6',
+                timezone: 'GMT',
+                daily: ['temperature_2m_max', 'temperature_2m_min', 'weathercode'],
+                temperature_unit: unit,
+                hourly: ['cloudcover_low', 'windspeed_10m', 'precipitation_probability', 'visibility']
+            })
+  
+            setForecast(res.data)
+        } catch(err) {
+            console.error(err)
+        }
     }
 
     const getGeocoding = async() => {
@@ -74,7 +94,7 @@ export const CurrentWeatherComponent = ({forecast, setLocation, unit}: CurrentWe
                     <ul className={styles.list}>
                         { countries.map(country => {
                             return (
-                                <SearchItem country={country} key={country.id} />
+                                <SearchItem country={country} key={country.id} handleClick={handleSearchForecast} />
                             )
                         })}
                     </ul>
@@ -89,12 +109,12 @@ export const CurrentWeatherComponent = ({forecast, setLocation, unit}: CurrentWe
 
                 <div className={styles.bgImg}>
                     <div className={styles.imgContainer}>
-                        <img src={WeatherImage(forecast?.weathercode)} alt="weather-img" width={'100%'}/>
+                        <img src={WeatherImage(forecast?.current_weather?.weathercode)} alt="weather-img" width={'100%'}/>
                     </div>
                 </div>
 
                 <div className={styles.temperatureContainer}>
-                    <span className={styles.temperature}>{forecast?.temperature}</span>
+                    <span className={styles.temperature}>{forecast?.current_weather?.temperature}</span>
                     <span className={styles.unit}>{unit === 'celsius' ? '°C' : '°F'}</span>
                 </div>
 

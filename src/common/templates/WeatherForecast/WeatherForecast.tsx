@@ -1,15 +1,15 @@
 import { Forecast } from "@/common/services/ForecastService";
 import { WeatherDayCard } from "../WeatherDayCard/WeatherDayCard";
 import styles from "./WeatherForecast.module.css";
+import { useContext } from "react";
+import { ForecastContext, ForecastContextType } from "@/common/context/ForecastContext";
 
-export interface WeatherForecastProps {
-    forecast: Forecast | null
-}
-
-export const WeatherForecast = ({forecast}: WeatherForecastProps) => {
+export const WeatherForecast = () => {
+    const { forecast } = useContext(ForecastContext) as ForecastContextType;
+    
     return (
         <div className={`${styles.container} flex justify-center`}>
-            { forecast?.daily.temperature_2m_max.map((max: any, i: number) => {
+            { forecast?.daily?.temperature_2m_max?.map((max: any, i: number) => {
                 if(i) {
                     return(
                         <WeatherDayCard 

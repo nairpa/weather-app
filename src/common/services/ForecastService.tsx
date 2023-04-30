@@ -9,7 +9,7 @@ type ForecastParams = {
     windspeed_unit?: 'kmh' | 'mph',
     forecast_days?: string,
     timezone?: 'GMT',
-    daily?: any
+    daily?: any,
 }
 
 export interface Forecast {
@@ -22,6 +22,7 @@ export interface Forecast {
     current_weather: any,
     daily_units: any,
     hourly_units: any,
+    hourly: any
 }
 
 export interface CurrentWeather {
