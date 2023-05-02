@@ -118,3 +118,9 @@
 .fontIcon {
     font-family: 'Material Symbols Outlined';
 }
+
+@media(max-width: 750px) {
+    .aside {
+        display: none;
+    }
+}
