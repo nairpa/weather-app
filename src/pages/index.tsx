@@ -53,10 +53,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ForecastContext.Provider value={{ forecast, setForecast, unit, setUnit, location, setLocation}}>
-        <CurrentWeatherComponent />
+        <div className='aside'>
+          <CurrentWeatherComponent />
+        </div>
         <div className="w-full">
           <Header />
           <main className='main'>
+            <div className='current-w'>
+              <CurrentWeatherComponent />
+            </div>
             <section className="section-a">
               <WeatherForecast />
               <TodaysHightlights />

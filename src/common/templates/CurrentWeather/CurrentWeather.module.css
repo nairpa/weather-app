@@ -121,6 +121,8 @@
 
 @media(max-width: 750px) {
     .aside {
-        display: none;
+        position: relative;
+        width: 100%;
+        z-index: 0;
     }
 }

@@ -102,9 +102,30 @@ body {
   }
 }
 
+@media(min-width: 750px) {
+  .current-w {
+    display: none;
+  }
+}
+
 @media(max-width: 750px) {
   .w-full {
     left: 0;
     width: 100%;
+  }
+
+  .aside {
+    display: none;
+  }
+
+  .current-w {
+    height: calc(100vh - 100px);
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
   }
 }
